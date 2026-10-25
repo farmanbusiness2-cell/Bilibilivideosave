@@ -1317,19 +1317,18 @@ function applyLanguage(lang){
     setStatus('⏳ Generating download link... (via Cobalt.tools)', 'info');
 
     try {
-      const res = await fetch('https://api.cobalt.tools/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          url: url,
-          videoQuality: quality.value === '1080' ? '1080' : (quality.value === '720' ? '720' : '480'),
-          downloadMode: 'auto'
-        })
-      });
-
+       const res = await fetch('https://co.wuk.sh/api/json', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body: JSON.stringify({
+    url: url,
+    vQuality: quality.value === '1080' ? '1080' : (quality.value === '720' ? '720' : '480'),
+    isAudioOnly: false
+  })
+});
       if(!res.ok){
         throw new Error('Service did not respond (status ' + res.status + ')');
       }
