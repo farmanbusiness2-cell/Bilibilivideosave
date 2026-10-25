@@ -1375,14 +1375,22 @@ function applyLanguage(lang){
       setStatus('✅ Links generated. Check the download buttons below.', 'success');
       result.scrollIntoView({behavior:'smooth', block:'nearest'});
 
-    } catch(err){
-      console.error(err);
-      setStatus(
-        '❌ ' + (err.message || 'Something went wrong') +
-        ' — Cobalt.tools may be temporarily busy. Please retry after 30 seconds, or paste the URL directly on cobalt.tools.',
-        'error'
-      );
-    } finally {
+ } catch(err){
+  console.error(err);
+  setStatus('❌ Direct API failed. Please use the backup button below.', 'error');
+  
+  // Backup Button (Agar API fail ho jaye)
+  result.innerHTML = `
+    <div style="text-align:center; padding:10px;">
+      <p style="color:#b71c1c; font-weight:bold; margin-bottom:10px;">API is busy right now!</p>
+      <p style="font-size:0.9rem; margin-bottom:15px; color:#555;">Direct download fail ho gaya hai. Aap niche wale button se direct Cobalt par jaakar download kar sakte hain.</p>
+      <a href="https://cobalt.tools/?u=${encodeURIComponent(url)}" target="_blank" style="display:inline-block; padding:12px 24px; background:#fb7299; color:white; text-decoration:none; border-radius:8px; font-weight:bold;">
+        Open in Cobalt.tools (Direct Link) ↗
+      </a>
+    </div>
+  `;
+  result.style.display = 'block';
+} finally {
       btn.disabled = false;
     }
   });
