@@ -1,0 +1,1438 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BiliSave - Download Bilibili Videos in HD 720p, 1080p | Free Online Downloader</title>
+
+<!-- SEO META -->
+<meta name="description" content="Download Bilibili videos in HD 720p, 1080p easily. Free, fast, no registration, no watermark. Works on mobile and desktop. Best Bilibili video downloader 2024.">
+<meta name="keywords" content="bilibili downloader, bilibili video download, download bilibili 1080p, bilibili hd downloader, free bilibili downloader, bilibili to mp4">
+<meta name="author" content="BiliSave">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://bilisave.example/">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="BiliSave - Free Bilibili Video Downloader HD 720p-1080p">
+<meta property="og:description" content="Download Bilibili videos in HD quality — free, fast, no registration required.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bilisave.example/">
+<meta property="og:image" content="https://bilisave.example/og-image.jpg">
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BiliSave - Free Bilibili Video Downloader">
+<meta name="twitter:description" content="Download Bilibili videos in HD 720p-1080p — free and fast.">
+
+<!-- SCHEMA.ORG -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "BiliSave",
+  "url": "https://bilisave.example/",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free Bilibili video downloader for HD 720p-1080p quality videos."
+}
+</script>
+
+<style>
+  :root {
+    --primary: #fb7299;
+    --primary-dark: #e85d85;
+    --dark: #1a1a2e;
+    --light: #f7f7fb;
+    --text: #2d2d3a;
+    --gray: #6b6b7b;
+    --border: #e0e0e8;
+    --success: #1b5e20;
+    --error: #b71c1c;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--light); color: var(--text); line-height:1.75;
+    font-size:16px;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    background: var(--dark); color:#fff; padding:16px 24px;
+    display:flex; justify-content:space-between; align-items:center;
+    position:sticky; top:0; z-index:100; box-shadow:0 2px 10px rgba(0,0,0,.2);
+    flex-wrap:wrap; gap:10px;
+  }
+  .header-left { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+  header .logo { font-size:1.4rem; font-weight:800; color:var(--primary); }
+  header .logo span { color:#fff; }
+  header nav { display:flex; flex-wrap:wrap; gap:4px; }
+  header nav a {
+    color:#ccc; text-decoration:none; font-size:.85rem;
+    padding:6px 10px; border-radius:6px; transition:.2s;
+  }
+  header nav a:hover { color:#fff; background:var(--primary); }
+
+  /* ===== LANGUAGE SWITCHER ===== */
+  .header-right { display:flex; align-items:center; gap:10px; }
+  .lang-switcher {
+    display:flex; align-items:center; gap:6px;
+    background:rgba(255,255,255,.1); padding:4px 8px;
+    border-radius:8px; border:1px solid rgba(255,255,255,.15);
+  }
+  .lang-switcher label {
+    font-size:.8rem; color:#ccc; font-weight:600;
+  }
+  .lang-switcher select {
+    background:var(--dark); color:#fff; border:1px solid #444;
+    padding:6px 10px; border-radius:6px; font-size:.85rem;
+    cursor:pointer; outline:none;
+  }
+  .lang-switcher select:focus { border-color:var(--primary); }
+
+  /* ===== ADS ===== */
+  .ad-container {
+    max-width:970px; margin:20px auto; padding:10px;
+    background:#fff; border:1px dashed var(--border); border-radius:8px;
+    text-align:center; min-height:100px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gray); font-size:.85rem;
+  }
+  .ad-container::before { content:'Advertisement'; }
+  .ad-inline {
+    margin:24px auto; max-width:728px; padding:10px;
+    background:#fff; border:1px dashed var(--border); border-radius:8px;
+    text-align:center; min-height:90px;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gray); font-size:.85rem;
+  }
+  .ad-inline::before { content:'Advertisement'; }
+
+  /* ===== HERO ===== */
+  .hero {
+    text-align:center; padding:70px 20px 50px;
+    background: linear-gradient(135deg, #fb7299 0%, #fc9db7 100%);
+    color:#fff;
+  }
+  .hero h1 { font-size:2.4rem; margin-bottom:14px; line-height:1.25; }
+  .hero p { font-size:1.1rem; opacity:.95; max-width:700px; margin:0 auto 16px; }
+  .hero .badges { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:20px; }
+  .hero .badges span {
+    background:rgba(255,255,255,.2); padding:6px 14px;
+    border-radius:20px; font-size:.85rem; font-weight:600;
+  }
+
+  /* ===== DOWNLOADER ===== */
+  .downloader {
+    max-width:760px; margin:-40px auto 40px; padding:32px;
+    background:#fff; border-radius:16px;
+    box-shadow:0 10px 40px rgba(0,0,0,.12);
+    position:relative; z-index:2;
+  }
+  .downloader h2 { font-size:1.15rem; margin-bottom:16px; color:var(--dark); text-align:center; }
+  .input-group { display:flex; gap:10px; flex-wrap:wrap; }
+  .input-group input {
+    flex:1; min-width:240px; padding:14px 16px;
+    border:2px solid var(--border); border-radius:10px; font-size:1rem;
+  }
+  .input-group input:focus { outline:none; border-color:var(--primary); }
+  .input-group button {
+    padding:14px 28px; background:var(--primary); color:#fff;
+    border:none; border-radius:10px; font-weight:700; font-size:1rem;
+    cursor:pointer; transition:.2s;
+  }
+  .input-group button:hover { background:var(--primary-dark); }
+  .input-group button:disabled { background:#ccc; cursor:not-allowed; }
+
+  .quality-row {
+    margin-top:16px; display:flex; gap:12px; align-items:center;
+    flex-wrap:wrap; font-size:.95rem;
+  }
+  .quality-row label { font-weight:600; color:var(--gray); }
+  .quality-row select {
+    padding:8px 12px; border:2px solid var(--border); border-radius:8px;
+    font-size:.95rem; cursor:pointer;
+  }
+
+  .status {
+    margin-top:18px; padding:12px 14px; border-radius:8px;
+    font-size:.92rem; display:none;
+  }
+  .status.info { background:#e8f4fd; color:#0c6ba5; display:block; }
+  .status.error { background:#fdecea; color:var(--error); display:block; }
+  .status.success { background:#e8f8ee; color:var(--success); display:block; }
+
+  .result-card {
+    margin-top:18px; padding:18px; border:1px solid var(--border);
+    border-radius:10px; display:none;
+  }
+  .result-card .title { font-weight:700; margin-bottom:8px; }
+  .dl-buttons { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+  .dl-buttons a {
+    padding:10px 18px; background:var(--dark); color:#fff;
+    text-decoration:none; border-radius:8px; font-size:.9rem;
+    font-weight:600; transition:.2s;
+  }
+  .dl-buttons a:hover { background:var(--primary); }
+
+  /* ===== SHARE SECTION ===== */
+  .share-section {
+    max-width:760px; margin:0 auto 40px; padding:24px 28px;
+    background:#fff; border-radius:16px;
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
+  }
+  .share-section h3 {
+    font-size:1.1rem; color:var(--dark); margin-bottom:6px;
+    text-align:center;
+  }
+  .share-section p {
+    font-size:.9rem; color:var(--gray); text-align:center;
+    margin-bottom:18px;
+  }
+  .share-buttons {
+    display:flex; flex-wrap:wrap; gap:10px;
+    justify-content:center;
+  }
+  .share-btn {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 18px; border-radius:10px;
+    color:#fff; text-decoration:none; font-size:.9rem;
+    font-weight:600; cursor:pointer; border:none;
+    transition:.2s;
+  }
+  .share-btn:hover { transform:translateY(-2px); opacity:.92; }
+  .share-btn.whatsapp { background:#25D366; }
+  .share-btn.facebook { background:#1877F2; }
+  .share-btn.twitter { background:#000; }
+  .share-btn.telegram { background:#0088cc; }
+  .share-btn.linkedin { background:#0A66C2; }
+  .share-btn.reddit { background:#FF4500; }
+  .share-btn.email { background:#6b6b7b; }
+  .share-btn.copy { background:var(--primary); }
+  .share-btn.copy.copied { background:var(--success); }
+  .share-btn svg { width:18px; height:18px; fill:currentColor; }
+
+  /* ===== SECTIONS ===== */
+  section { max-width:960px; margin:0 auto; padding:60px 20px; }
+  section h2 {
+    font-size:1.9rem; margin-bottom:22px; color:var(--dark);
+    border-left:5px solid var(--primary); padding-left:16px;
+  }
+  section h3 { font-size:1.25rem; margin:26px 0 10px; color:var(--dark); }
+  section h4 { font-size:1.05rem; margin:18px 0 8px; color:var(--dark); }
+  section p { color:#444; margin-bottom:14px; }
+  section ul, section ol { margin-left:24px; margin-bottom:18px; }
+  section li { margin-bottom:8px; }
+  section a { color:var(--primary); text-decoration:none; }
+  section a:hover { text-decoration:underline; }
+
+  /* ===== TABLE OF CONTENTS ===== */
+  .toc {
+    background:#fff; border-radius:12px; padding:24px;
+    box-shadow:0 4px 16px rgba(0,0,0,.06); margin-bottom:20px;
+  }
+  .toc h3 { margin-bottom:12px; }
+  .toc ul { list-style:none; margin-left:0; }
+  .toc li { padding:4px 0; }
+  .toc a { color:var(--primary); font-weight:500; }
+
+  /* ===== STEPS ===== */
+  .steps { display:grid; gap:16px; margin-top:20px; }
+  .step {
+    display:flex; gap:16px; background:#fff; padding:20px;
+    border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,.06);
+    align-items:flex-start;
+  }
+  .step .num {
+    flex-shrink:0; width:40px; height:40px; border-radius:50%;
+    background:var(--primary); color:#fff; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem;
+  }
+  .step .content h4 { margin:0 0 6px; }
+  .step .content p { margin:0; font-size:.95rem; }
+
+  /* ===== SCREENSHOT ===== */
+  .screenshot-box {
+    background:#fff; border-radius:12px; padding:20px;
+    box-shadow:0 4px 16px rgba(0,0,0,.06); margin:24px 0;
+    text-align:center;
+  }
+  .screenshot-box img {
+    max-width:100%; border-radius:8px;
+    border:1px solid var(--border); display:block; margin:0 auto;
+  }
+  .screenshot-box figcaption {
+    margin-top:12px; font-size:.88rem; color:var(--gray); font-style:italic;
+  }
+
+  /* ===== CARDS ===== */
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+  .card {
+    background:#fff; padding:24px; border-radius:12px;
+    box-shadow:0 4px 16px rgba(0,0,0,.06);
+    transition:.2s;
+  }
+  .card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.1); }
+  .card h3 { color:var(--primary); margin-bottom:8px; font-size:1.05rem; }
+  .card p { font-size:.93rem; color:#555; }
+
+  /* ===== FAQ ===== */
+  .faq-item {
+    background:#fff; border-radius:10px; margin-bottom:12px; padding:18px 20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.05); cursor:pointer;
+    transition:.2s;
+  }
+  .faq-item:hover { box-shadow:0 4px 16px rgba(0,0,0,.08); }
+  .faq-item h4 {
+    color:var(--dark); font-size:1rem;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .faq-item h4::after { content:'+'; font-size:1.4rem; color:var(--primary); }
+  .faq-item.open h4::after { content:'−'; }
+  .faq-item p { margin-top:10px; display:none; font-size:.93rem; }
+  .faq-item.open p { display:block; }
+
+  /* ===== BLOG ===== */
+  .blog-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:22px; }
+  .blog-card {
+    background:#fff; border-radius:12px; overflow:hidden;
+    box-shadow:0 4px 16px rgba(0,0,0,.06); transition:.2s;
+    display:flex; flex-direction:column;
+  }
+  .blog-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,.1); }
+  .blog-card .banner {
+    height:130px; background:linear-gradient(135deg,var(--primary),#fc9db7);
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:2.5rem;
+  }
+  .blog-card .content { padding:18px 20px; flex:1; }
+  .blog-card h4 { color:var(--dark); margin-bottom:8px; font-size:1.02rem; }
+  .blog-card p { font-size:.88rem; color:var(--gray); margin-bottom:12px; }
+  .blog-card .read-more {
+    display:inline-block; color:var(--primary); font-weight:600;
+    font-size:.88rem; text-decoration:none;
+  }
+
+  /* ===== POLICY ===== */
+  .policy {
+    background:#fff; border-radius:12px; padding:28px;
+    box-shadow:0 4px 16px rgba(0,0,0,.06);
+  }
+  .policy h3 { margin-top:20px; color:var(--dark); }
+  .policy h3:first-child { margin-top:0; }
+
+  /* ===== COMPARISON TABLE ===== */
+  .compare-table {
+    width:100%; border-collapse:collapse; margin:20px 0;
+    background:#fff; border-radius:10px; overflow:hidden;
+    box-shadow:0 4px 16px rgba(0,0,0,.06);
+  }
+  .compare-table th, .compare-table td {
+    padding:12px 16px; text-align:left; border-bottom:1px solid var(--border);
+    font-size:.93rem;
+  }
+  .compare-table th { background:var(--dark); color:#fff; font-weight:600; }
+  .compare-table tr:last-child td { border-bottom:none; }
+  .compare-table tr:nth-child(even) td { background:#fafafd; }
+
+  /* ===== BACK TO TOP ===== */
+  .back-to-top {
+    position:fixed; bottom:24px; right:24px;
+    width:48px; height:48px; border-radius:50%;
+    background:var(--primary); color:#fff; border:none;
+    font-size:1.4rem; cursor:pointer; display:none;
+    box-shadow:0 4px 16px rgba(251,114,153,.4);
+    z-index:99; transition:.2s;
+  }
+  .back-to-top.show { display:block; }
+  .back-to-top:hover { background:var(--primary-dark); transform:translateY(-3px); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background:var(--dark); color:#aaa; padding:50px 20px 30px;
+    margin-top:40px;
+  }
+  footer .footer-grid {
+    max-width:960px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px; margin-bottom:30px;
+  }
+  footer h4 { color:#fff; margin-bottom:12px; font-size:1rem; }
+  footer ul { list-style:none; margin:0; }
+  footer li { margin-bottom:8px; }
+  footer a { color:#aaa; text-decoration:none; font-size:.9rem; }
+  footer a:hover { color:var(--primary); }
+  footer .copyright {
+    text-align:center; padding-top:24px;
+    border-top:1px solid #333; font-size:.85rem;
+    max-width:960px; margin:0 auto;
+  }
+
+  @media(max-width:700px){
+    .header-left { flex-direction:column; align-items:flex-start; }
+    .hero h1 { font-size:1.6rem; }
+    .downloader { margin:-20px 12px 30px; padding:20px; }
+    section h2 { font-size:1.5rem; }
+    section { padding:40px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-left">
+    <div class="logo">Bili<span>Save</span></div>
+    <nav>
+      <a href="#downloader" data-i18n="nav_downloader">Downloader</a>
+      <a href="#how" data-i18n="nav_how">How to Use</a>
+      <a href="#features" data-i18n="nav_features">Features</a>
+      <a href="#guide" data-i18n="nav_guide">Guide</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <a href="#policy" data-i18n="nav_policy">Policy</a>
+      <a href="#blog" data-i18n="nav_blog">Blog</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+    </nav>
+  </div>
+  <div class="header-right">
+    <div class="lang-switcher">
+      <label for="langSelect" data-i18n="lang_label">🌐 Language</label>
+      <select id="langSelect">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="it">Italiano</option>
+        <option value="de">Deutsch</option>
+        <option value="ru">Русский</option>
+        <option value="es">Español</option>
+        <option value="pt">Português</option>
+        <option value="hi">हिन्दी</option>
+        <option value="ur">اردو</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <h1 data-i18n="hero_title">Download Bilibili Videos in HD<br>720p, 1080p — Free & Fast</h1>
+  <p data-i18n="hero_subtitle">Download any public Bilibili video in Full HD quality. No registration, no watermark, no hidden charges. Just paste the URL and download — on mobile or desktop.</p>
+  <div class="badges">
+    <span data-i18n="badge_free">✅ 100% Free</span>
+    <span data-i18n="badge_fast">⚡ Fast Processing</span>
+    <span data-i18n="badge_noreg">🔒 No Registration</span>
+    <span data-i18n="badge_mobile">📱 Mobile Friendly</span>
+    <span data-i18n="badge_hd">🎬 Up to 1080p</span>
+  </div>
+</div>
+
+<!-- ===== TOP AD SLOT ===== -->
+<div class="ad-container" id="ad-top">
+  <!-- Google AdSense / Ezoic / Media.net code yahan paste karein -->
+</div>
+
+<!-- ===== DOWNLOADER ===== -->
+<div class="downloader" id="downloader">
+  <h2 data-i18n="downloader_title">🎬 Paste Bilibili Video URL & Download</h2>
+  <div class="input-group">
+    <input type="text" id="videoUrl" placeholder="https://www.bilibili.com/video/BVxxxxxxxxxx" />
+    <button id="downloadBtn" data-i18n="btn_get_links">Get Download Links</button>
+  </div>
+  <div class="quality-row">
+    <label for="quality" data-i18n="quality_label">Preferred Quality:</label>
+    <select id="quality">
+      <option value="1080">1080p (Full HD)</option>
+      <option value="720" selected>720p (HD)</option>
+      <option value="480">480p (SD)</option>
+    </select>
+  </div>
+  <div class="status" id="status"></div>
+  <div class="result-card" id="resultCard"></div>
+</div>
+
+<!-- ===== SHARE SECTION ===== -->
+<div class="share-section">
+  <h3 data-i18n="share_title">🔗 Share BiliSave</h3>
+  <p data-i18n="share_subtitle">Help others discover BiliSave — share it with your friends!</p>
+  <div class="share-buttons">
+    <a class="share-btn whatsapp" id="shareWhatsapp" target="_blank" rel="noopener" href="#">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a class="share-btn facebook" id="shareFacebook" target="_blank" rel="noopener" href="#">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
+    </a>
+    <a class="share-btn twitter" id="shareTwitter" target="_blank" rel="noopener" href="#">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      X (Twitter)
+         </a>
+    <a class="share-btn telegram" id="shareTelegram" target="_blank" rel="noopener" href="#">
+      <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      Telegram
+    </a>
+    <a class="share-btn linkedin" id="shareLinkedin" target="_blank" rel="noopener" href="#">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a class="share-btn reddit" id="shareReddit" target="_blank" rel="noopener" href="#">
+      <svg viewBox="0 0 24 24"><path d="M12 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 01-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 01.042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 014.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 01.14-.197.35.35 0 01.238-.042l2.906.617a1.214 1.214 0 011.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.688-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 00-.231.094.33.33 0 000 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 00.029-.463.33.33 0 00-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 00-.232-.095z"/></svg>
+      Reddit
+    </a>
+    <a class="share-btn email" id="shareEmail" href="#">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Email
+    </a>
+    <button class="share-btn copy" id="shareCopy">
+      <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+      <span data-i18n="btn_copy_link">Copy Link</span>
+    </button>
+  </div>
+</div>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<section>
+  <div class="toc">
+    <h3 data-i18n="toc_title">📑 On This Page</h3>
+    <ul>
+      <li>• <a href="#downloader" data-i18n="nav_downloader">Downloader Tool</a></li>
+      <li>• <a href="#how" data-i18n="nav_how">How to Use — Step by Step</a></li>
+      <li>• <a href="#features" data-i18n="nav_features">Features</a></li>
+      <li>• <a href="#guide" data-i18n="nav_guide">Complete Guide</a></li>
+      <li>• <a href="#quality-table" data-i18n="nav_quality">Quality Comparison</a></li>
+      <li>• <a href="#troubleshoot" data-i18n="nav_trouble">Troubleshooting</a></li>
+      <li>• <a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+      <li>• <a href="#policy" data-i18n="nav_policy">Policies</a></li>
+      <li>• <a href="#blog" data-i18n="nav_blog">Articles & Blogs</a></li>
+      <li>• <a href="#about" data-i18n="nav_about">About BiliSave</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== HOW TO USE ===== -->
+<section id="how">
+  <h2 data-i18n="how_title">How to Use</h2>
+  <p data-i18n="how_intro">Using BiliSave is very simple — just 3 steps. Each step is explained in detail below:</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <div class="content">
+        <h4 data-i18n="step1_title">Copy the Video URL</h4>
+        <p data-i18n="step1_desc">Open your favorite video on the Bilibili app or website. Copy the URL from the address bar, or tap "Share → Copy Link" in the app. The URL will look like: https://www.bilibili.com/video/BV1xx411c7mD</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div class="content">
+        <h4 data-i18n="step2_title">Paste the URL</h4>
+        <p data-i18n="step2_desc">Paste the URL into the downloader box above. Select your desired quality — 720p or 1080p. Then click the "Get Download Links" button.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div class="content">
+        <h4 data-i18n="step3_title">Download</h4>
+        <p data-i18n="step3_desc">Download buttons will appear within seconds. Choose your quality and save the video. If direct download fails, try right-click → "Save link as..."</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="screenshot-box">
+    <img src="https://via.placeholder.com/800x450/fb7299/ffffff?text=BiliSave+Downloader+Screenshot+1" alt="BiliSave downloader interface showing URL input field">
+    <figcaption data-i18n="ss1_caption">Screenshot 1: URL input box — paste the Bilibili video link here</figcaption>
+  </figure>
+
+  <figure class="screenshot-box">
+    <img src="https://via.placeholder.com/800x450/1a1a2e/ffffff?text=BiliSave+Download+Links+Screenshot+2" alt="BiliSave showing generated download buttons for 720p and 1080p">
+    <figcaption data-i18n="ss2_caption">Screenshot 2: After download links are generated — choose quality and download</figcaption>
+  </figure>
+
+  <p data-i18n="how_note"><strong>⚠️ Important Note:</strong> Due to Bilibili's technical protection (WBI signing + Referer check), browser-only downloaders are not always reliable. If direct links fail, we use trusted third-party services like Cobalt.tools to generate download links.</p>
+</section>
+
+<!-- ===== INLINE AD ===== -->
+<div class="ad-inline" id="ad-mid-1"></div>
+
+<!-- ===== FEATURES ===== -->
+<section id="features">
+  <h2 data-i18n="features_title">Features</h2>
+  <p data-i18n="features_intro">BiliSave is built for simplicity and speed. Here are the features that set it apart from other downloaders:</p>
+  <div class="cards">
+    <div class="card">
+      <h3 data-i18n="feat1_title">🎬 HD Quality (720p & 1080p)</h3>
+      <p data-i18n="feat1_desc">Download videos in Full HD quality. 480p, 720p, and 1080p — all three options are available. Available qualities are automatically detected.</p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="feat2_title">⚡ Fast Processing</h3>
+      <p data-i18n="feat2_desc">Get download options within seconds of pasting the URL. No queue, no waiting, no captcha.</p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="feat3_title">🔒 No Registration Required</h3>
+      <p data-i18n="feat3_desc">No account needed. No email, no login, no hidden tracking. Just paste the URL and download.</p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="feat4_title">📱 Mobile Friendly</h3>
+      <p data-i18n="feat4_desc">Works perfectly on desktop, tablet, and mobile. Responsive design optimized for every screen size.</p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="feat5_title">💸 100% Free</h3>
+      <p data-i18n="feat5_desc">Completely free. No premium plan, no hidden charges, no credit card requirement. Free forever.</p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="feat6_title">🛡️ Safe & Secure</h3>
+      <p data-i18n="feat6_desc">No malware, no pop-up ads, no redirects. Just clean download links. We don't store any personal data.</p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="feat7_title">🌐 No Signup Needed</h3>
+      <p data-i18n="feat7_desc">Use it directly without filling any form. No OTP, no verification, no waiting period.</p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="feat8_title">🎯 Multiple Qualities</h3>
+      <p data-i18n="feat8_desc">Multiple quality options for the same video — choose the file size and quality that fits your needs.</p>
+    </div>
+    <div class="card">
+      <h3 data-i18n="feat9_title">🔄 Regular Updates</h3>
+      <p data-i18n="feat9_desc">Bilibili regularly updates its technical protection — we keep our service updated so downloads always work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPLETE GUIDE ===== -->
+<section id="guide">
+  <h2 data-i18n="guide_title">Complete Guide — Bilibili Video Download</h2>
+  <p data-i18n="guide_intro">This section is for users who are downloading from Bilibili for the first time. We explain every step in detail below.</p>
+
+  <h3 data-i18n="guide_h1">Step 1: How to Find the Bilibili Video URL</h3>
+  <p data-i18n="guide_p1">First, you need the URL of the video you want to download. There are two ways:</p>
+  <ul>
+    <li data-i18n="guide_li1"><strong>On desktop:</strong> Open the Bilibili video in your browser → copy the URL from the address bar (e.g., https://www.bilibili.com/video/BV1xx411c7mD)</li>
+    <li data-i18n="guide_li2"><strong>On mobile app:</strong> Open the video → tap the "Share" icon on the right → select "Copy Link"</li>
+  </ul>
+
+  <figure class="screenshot-box">
+    <img src="https://via.placeholder.com/800x450/f7f7fb/2d2d3a?text=Bilibili+Video+Page+Screenshot" alt="Bilibili video page showing URL in address bar">
+    <figcaption data-i18n="ss3_caption">Screenshot 3: Bilibili video page — copy the URL from the address bar</figcaption>
+  </figure>
+
+  <h3 data-i18n="guide_h2">Step 2: Paste the URL</h3>
+  <p data-i18n="guide_p2">Now paste the URL into the BiliSave downloader box. You can also use b23.tv short links — we automatically handle the redirect.</p>
+
+  <h3 data-i18n="guide_h3">Step 3: Select the Quality</h3>
+  <p data-i18n="guide_p3">Choose your desired quality from the dropdown:</p>
+  <ul>
+    <li data-i18n="guide_q1"><strong>1080p (Full HD):</strong> Best quality, large file size (approx. 200-500 MB per 10 min)</li>
+    <li data-i18n="guide_q2"><strong>720p (HD):</strong> Balanced quality and size (approx. 100-250 MB per 10 min)</li>
+    <li data-i18n="guide_q3"><strong>480p (SD):</strong> Smallest size, best for mobile (approx. 50-100 MB per 10 min)</li>
+  </ul>
+
+  <h3 data-i18n="guide_h4">Step 4: Click the Download Button</h3>
+  <p data-i18n="guide_p4">Download links take 5-15 seconds to generate. If the video is private or region-locked, you will see an error message.</p>
+
+  <h3 data-i18n="guide_h5">Step 5: Save the File</h3>
+  <p data-i18n="guide_p5">After clicking the download button, the video will be saved to your device. Check your default download folder.</p>
+</section>
+
+<!-- ===== INLINE AD ===== -->
+<div class="ad-inline" id="ad-mid-2"></div>
+
+<!-- ===== QUALITY COMPARISON ===== -->
+<section id="quality-table">
+  <h2 data-i18n="quality_title">Quality Comparison — 480p vs 720p vs 1080p</h2>
+  <p data-i18n="quality_intro">Which quality should you choose? It depends on your needs. See the comparison table below:</p>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th data-i18n="th_quality">Quality</th>
+        <th data-i18n="th_resolution">Resolution</th>
+        <th data-i18n="th_size">File Size (10 min video)</th>
+        <th data-i18n="th_best">Best For</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>480p (SD)</strong></td><td>854 × 480</td><td>~50-100 MB</td><td data-i18n="td_480">Older phones, limited data</td></tr>
+      <tr><td><strong>720p (HD)</strong></td><td>1280 × 720</td><td>~100-250 MB</td><td data-i18n="td_720">General viewing, mobile</td></tr>
+      <tr><td><strong>1080p (Full HD)</strong></td><td>1920 × 1080</td><td>~200-500 MB</td><td data-i18n="td_1080">Desktop, TV, archiving</td></tr>
+    </tbody>
+  </table>
+  <p data-i18n="quality_tip"><strong>Tip:</strong> If you have limited storage, 720p is the best choice — it offers the perfect balance of quality and file size. Choose 1080p when you want to watch on a large screen.</p>
+      </section>
+      
+<!-- ===== TROUBLESHOOTING ===== -->
+<section id="troubleshoot">
+  <h2 data-i18n="trouble_title">Troubleshooting — Common Errors & Solutions</h2>
+  <p data-i18n="trouble_intro">Sometimes errors can occur during the download process. Here are the common errors and their solutions:</p>
+
+  <h3 data-i18n="err1_title">❌ Error: "Invalid URL"</h3>
+  <p data-i18n="err1_desc"><strong>Cause:</strong> The URL is in the wrong format or is from another site. <strong>Solution:</strong> Make sure the URL contains bilibili.com/video/BV... or b23.tv/... Only the BV ID part will also work.</p>
+
+  <h3 data-i18n="err2_title">❌ Error: "Video not found"</h3>
+  <p data-i18n="err2_desc"><strong>Cause:</strong> The video was deleted, is private, or is region-locked. <strong>Solution:</strong> Check on Bilibili whether the video is still accessible.</p>
+
+  <h3 data-i18n="err3_title">❌ Error: "Service unavailable"</h3>
+  <p data-i18n="err3_desc"><strong>Cause:</strong> Cobalt.tools is temporarily busy or down. <strong>Solution:</strong> Wait 30-60 seconds and retry. Or go directly to cobalt.tools and paste the URL there.</p>
+
+  <h3 data-i18n="err4_title">❌ Download button doesn't work</h3>
+  <p data-i18n="err4_desc"><strong>Cause:</strong> Bilibili CDN checks the Referer header. <strong>Solution:</strong> Right-click the link → select "Save link as...". Or open the link in a new tab.</p>
+
+  <h3 data-i18n="err5_title">❌ 1080p option not showing</h3>
+  <p data-i18n="err5_desc"><strong>Cause:</strong> The original video was not uploaded in 1080p, or 1080p is only available to premium users. <strong>Solution:</strong> Try 720p. Some videos on Bilibili are only uploaded up to 720p.</p>
+</section>
+
+<!-- ===== INLINE AD ===== -->
+<div class="ad-inline" id="ad-mid-3"></div>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <h2 data-i18n="faq_title">FAQ (Frequently Asked Questions)</h2>
+  <p data-i18n="faq_intro">The most common questions are answered below. If your question isn't here, contact us.</p>
+
+  <div class="faq-item">
+    <h4 data-i18n="faq_q1">❓ Is this website free?</h4>
+    <p data-i18n="faq_a1">Yes, completely free. No registration, no hidden charges. Free forever.</p>
+  </div>
+  <div class="faq-item">
+    <h4 data-i18n="faq_q2">❓ Can I download in 1080p quality?</h4>
+    <p data-i18n="faq_a2">Yes, but 1080p is only available if the original video was uploaded in 1080p. Some videos are only available up to 720p. 1080p may require a Bilibili premium account.</p>
+  </div>
+  <div class="faq-item">
+    <h4 data-i18n="faq_q3">❓ Do I need a Bilibili account to download?</h4>
+    <p data-i18n="faq_a3">Not for this tool. However, some videos (premium/paid) are only accessible after login — those cannot be downloaded.</p>
+  </div>
+  <div class="faq-item">
+    <h4 data-i18n="faq_q4">❓ Are downloaded videos for commercial use?</h4>
+    <p data-i18n="faq_a4">No. For personal use (offline viewing) only. Commercial use or redistribution is copyright infringement. Always get the creator's permission.</p>
+  </div>
+  <div class="faq-item">
+    <h4 data-i18n="faq_q5">❓ The video won't download — what should I do?</h4>
+    <p data-i18n="faq_a5">Some videos are geo-restricted or premium. Check that the URL is in the correct format (it should start with BV). If it still fails, the video may be temporarily unavailable. See the troubleshooting section.</p>
+  </div>
+  <div class="faq-item">
+    <h4 data-i18n="faq_q6">❓ Do you store my data?</h4>
+    <p data-i18n="faq_a6">No. We don't store any URLs, videos, or personal data. Everything is processed in your browser.</p>
+  </div>
+  <div class="faq-item">
+    <h4 data-i18n="faq_q7">❓ Does this tool work on mobile?</h4>
+    <p data-i18n="faq_a7">Yes, absolutely. It works on both Android and iOS. No app installation needed — just open it in your browser.</p>
+  </div>
+  <div class="faq-item">
+    <h4 data-i18n="faq_q8">❓ Will there be a watermark on the downloaded video?</h4>
+    <p data-i18n="faq_a8">No. You get the video in original quality, with no extra watermark.</p>
+  </div>
+  <div class="faq-item">
+    <h4 data-i18n="faq_q9">❓ Is there a limit to BiliSave?</h4>
+    <p data-i18n="faq_a9">There is no fixed limit, but due to Cobalt.tools' rate limit, multiple downloads within 1-2 minutes may cause a temporary block. Please wait a moment.</p>
+  </div>
+  <div class="faq-item">
+    <h4 data-i18n="faq_q10">❓ Can I download all videos from a playlist or channel?</h4>
+    <p data-i18n="faq_a10">Not yet — this tool downloads one video at a time. Playlist support will be added in the future.</p>
+  </div>
+</section>
+
+<!-- ===== POLICY ===== -->
+<section id="policy">
+  <h2 data-i18n="policy_title">Policies</h2>
+  <div class="policy">
+    <h3 data-i18n="pol1_title">1. Copyright Policy</h3>
+    <p data-i18n="pol1_desc">This tool is for personal, non-commercial use only. You should only download videos that you created yourself, that are copyright-free/CC-licensed, or for which you have the creator's explicit permission. Downloading, redistributing, or uploading any third-party copyrighted content is strictly prohibited and is a violation of copyright law.</p>
+
+    <h3 data-i18n="pol2_title">2. Bilibili Terms of Service</h3>
+    <p data-i18n="pol2_desc">According to Bilibili's Terms of Service, downloading their videos is not allowed except through their official app's "offline cache" feature. When using this tool, you are responsible for following Bilibili's ToS. We are not responsible for any ToS violation.</p>
+
+    <h3 data-i18n="pol3_title">3. Privacy Policy</h3>
+    <p data-i18n="pol3_desc">We respect your privacy. This website: does not collect any personal data; does not use tracking cookies (except basic analytics); does not store any URLs or videos on servers; does not use third-party ad networks (except display ads). All processing happens in your browser. When third-party services (like Cobalt) are used, their own privacy policies apply.</p>
+
+    <h3 data-i18n="pol4_title">4. Disclaimer</h3>
+    <p data-i18n="pol4_desc">This tool is provided "as-is". We do not guarantee that any specific video can be downloaded. Bilibili regularly updates its technical protection, which may break third-party tools. Users are solely responsible for any misuse.</p>
+
+    <h3 data-i18n="pol5_title">5. DMCA / Takedown</h3>
+    <p data-i18n="pol5_desc">If you are a copyright holder and believe this site violates your rights, please contact us. We will take action immediately.</p>
+
+    <h3 data-i18n="pol6_title">6. Ads Policy</h3>
+    <p data-i18n="pol6_desc">This site uses display ads (Google AdSense, Ezoic, etc.) to cover hosting and maintenance costs. Ads are privacy-friendly and do not collect personal data. You can use an ad blocker — the site will still be fully functional.</p>
+  </div>
+</section>
+
+<!-- ===== INLINE AD ===== -->
+<div class="ad-inline" id="ad-mid-4"></div>
+
+<!-- ===== BLOG ===== -->
+<section id="blog">
+  <h2 data-i18n="blog_title">Articles & Blogs</h2>
+  <p data-i18n="blog_intro">Read the latest articles about Bilibili, video downloading, copyright, and technical guides:</p>
+  <div class="blog-grid">
+    <article class="blog-card">
+      <div class="banner">📥</div>
+      <div class="content">
+        <h4 data-i18n="blog1_title">How to Download Bilibili Videos — Step-by-Step Guide</h4>
+        <p data-i18n="blog1_desc">The complete method for downloading Bilibili videos up to 1080p on both mobile and desktop. Includes common errors and their solutions.</p>
+        <a href="#" class="read-more" data-i18n="read_more">Read more →</a>
+      </div>
+    </article>
+    <article class="blog-card">
+      <div class="banner">⚖️</div>
+      <div class="content">
+        <h4 data-i18n="blog2_title">Is It Legal to Download Bilibili Videos?</h4>
+        <p data-i18n="blog2_desc">A detailed explanation of copyright law, fair use, and Bilibili's Terms of Service. What's allowed and what's not — all clear.</p>
+        <a href="#" class="read-more" data-i18n="read_more">Read more →</a>
+      </div>
+    </article>
+    <article class="blog-card">
+      <div class="banner">🎯</div>
+      <div class="content">
+        <h4 data-i18n="blog3_title">720p vs 1080p: Which Quality to Choose?</h4>
+        <p data-i18n="blog3_desc">A comparison of file size, bandwidth, and visual quality. A guide to choosing the best quality based on your needs.</p>
+        <a href="#" class="read-more" data-i18n="read_more">Read more →</a>
+      </div>
+    </article>
+    <article class="blog-card">
+      <div class="banner">🛠️</div>
+      <div class="content">
+        <h4 data-i18n="blog4_title">Top 5 Bilibili Downloader Tools (2024)</h4>
+        <p data-i18n="blog4_desc">A comparison of trusted tools — based on features, speed, safety, and reliability. Free and paid options included.</p>
+        <a href="#" class="read-more" data-i18n="read_more">Read more →</a>
+      </div>
+    </article>
+    <article class="blog-card">
+      <div class="banner">🔐</div>
+      <div class="content">
+        <h4 data-i18n="blog5_title">What Is WBI Signing and How Do Downloaders Work?</h4>
+        <p data-i18n="blog5_desc">A simple explanation of Bilibili's technical protection — WBI tokens, Referer checks, and how downloaders handle them.</p>
+        <a href="#" class="read-more" data-i18n="read_more">Read more →</a>
+      </div>
+    </article>
+    <article class="blog-card">
+      <div class="banner">📱</div>
+      <div class="content">
+        <h4 data-i18n="blog6_title">How to Download Bilibili Videos on Mobile</h4>
+        <p data-i18n="blog6_desc">Easy steps for both Android and iOS. A full guide on how to download without installing any app.</p>
+        <a href="#" class="read-more" data-i18n="read_more">Read more →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <h2 data-i18n="about_title">About BiliSave</h2>
+  <p data-i18n="about_p1"><strong>BiliSave</strong> is a simple, fast, and privacy-focused tool that helps you easily download Bilibili videos. Our goal is to provide a clean, ad-free experience without any registration, tracking, or hidden charges.</p>
+  <p data-i18n="about_p2">We understand that creators' work deserves respect — that's why we encourage use only for personal offline viewing. We also support creators and are against the unauthorized redistribution of their content.</p>
+
+  <h3 data-i18n="about_mission_title">Our Mission</h3>
+  <p data-i18n="about_mission_desc">Content should be easily accessible on the internet — but creators' rights must be respected. BiliSave's mission is to provide a simple, safe, and free tool that helps users watch their favorite content offline, without any complex setup.</p>
+
+  <h3 data-i18n="about_tech_title">Technical Details</h3>
+  <p data-i18n="about_tech_desc">This tool runs on client-side JavaScript. Due to Bilibili's technical protection (WBI signing, Referer checks), we use trusted third-party services (like Cobalt.tools) to generate download links. We do not store your URLs.</p>
+
+  <h3 data-i18n="about_contact_title">Contact Us</h3>
+  <p data-i18n="about_contact_desc">For questions, feedback, or DMCA takedown requests, email us: support@bilisave.example. We usually reply within 24-48 hours.</p>
+</section>
+
+<!-- ===== BOTTOM AD ===== -->
+<div class="ad-container" id="ad-bottom"></div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>BiliSave</h4>
+      <p style="font-size:.88rem;" data-i18n="footer_tagline">Free Bilibili video downloader — HD 720p and 1080p quality. Fast, safe, and no registration.</p>
+    </div>
+    <div>
+      <h4 data-i18n="footer_quick">Quick Links</h4>
+      <ul>
+        <li><a href="#downloader" data-i18n="nav_downloader">Downloader</a></li>
+        <li><a href="#how" data-i18n="nav_how">How to Use</a></li>
+        <li><a href="#features" data-i18n="nav_features">Features</a></li>
+        <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="footer_legal">Legal</h4>
+      <ul>
+        <li><a href="#policy" data-i18n="footer_privacy">Privacy Policy</a></li>
+        <li><a href="#policy" data-i18n="footer_terms">Terms of Service</a></li>
+        <li><a href="#policy" data-i18n="footer_dmca">DMCA / Copyright</a></li>
+        <li><a href="#policy" data-i18n="footer_disclaimer">Disclaimer</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="footer_resources">Resources</h4>
+      <ul>
+        <li><a href="#blog" data-i18n="footer_blog">Blog & Articles</a></li>
+        <li><a href="#guide" data-i18n="footer_guide">Complete Guide</a></li>
+        <li><a href="#troubleshoot" data-i18n="footer_trouble">Troubleshooting</a></li>
+        <li><a href="#about" data-i18n="footer_about">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">
+    <p data-i18n="footer_copyright">© 2024 BiliSave. All rights reserved. | Educational & personal use only.</p>
+    <p style="margin-top:8px; font-size:.8rem;" data-i18n="footer_disclaimer2">This site is not affiliated with Bilibili. All trademarks belong to their respective owners.</p>
+  </div>
+</footer>
+  <!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<!-- ===== TRANSLATIONS (i18n) ===== -->
+<script>
+const translations = {
+  en: {
+    nav_downloader: "Downloader", nav_how: "How to Use", nav_features: "Features",
+    nav_guide: "Guide", nav_faq: "FAQ", nav_policy: "Policy", nav_blog: "Blog", nav_about: "About",
+    lang_label: "🌐 Language",
+    hero_title: "Download Bilibili Videos in HD<br>720p, 1080p — Free & Fast",
+    hero_subtitle: "Download any public Bilibili video in Full HD quality. No registration, no watermark, no hidden charges. Just paste the URL and download — on mobile or desktop.",
+    badge_free: "✅ 100% Free", badge_fast: "⚡ Fast Processing", badge_noreg: "🔒 No Registration",
+    badge_mobile: "📱 Mobile Friendly", badge_hd: "🎬 Up to 1080p",
+    downloader_title: "🎬 Paste Bilibili Video URL & Download",
+    btn_get_links: "Get Download Links", quality_label: "Preferred Quality:",
+    share_title: "🔗 Share BiliSave", share_subtitle: "Help others discover BiliSave — share it with your friends!",
+    btn_copy_link: "Copy Link",
+    toc_title: "📑 On This Page",
+    how_title: "How to Use", how_intro: "Using BiliSave is very simple — just 3 steps. Each step is explained in detail below:",
+    step1_title: "Copy the Video URL",
+    step1_desc: "Open your favorite video on the Bilibili app or website. Copy the URL from the address bar, or tap 'Share → Copy Link' in the app. The URL will look like: https://www.bilibili.com/video/BV1xx411c7mD",
+    step2_title: "Paste the URL",
+    step2_desc: "Paste the URL into the downloader box above. Select your desired quality — 720p or 1080p. Then click the 'Get Download Links' button.",
+    step3_title: "Download",
+    step3_desc: "Download buttons will appear within seconds. Choose your quality and save the video. If direct download fails, try right-click → 'Save link as...'",
+    ss1_caption: "Screenshot 1: URL input box — paste the Bilibili video link here",
+    ss2_caption: "Screenshot 2: After download links are generated — choose quality and download",
+    ss3_caption: "Screenshot 3: Bilibili video page — copy the URL from the address bar",
+    how_note: "⚠️ Important Note: Due to Bilibili's technical protection (WBI signing + Referer check), browser-only downloaders are not always reliable. If direct links fail, we use trusted third-party services like Cobalt.tools to generate download links.",
+    features_title: "Features",
+    features_intro: "BiliSave is built for simplicity and speed. Here are the features that set it apart from other downloaders:",
+    feat1_title: "🎬 HD Quality (720p & 1080p)", feat1_desc: "Download videos in Full HD quality. 480p, 720p, and 1080p — all three options are available. Available qualities are automatically detected.",
+    feat2_title: "⚡ Fast Processing", feat2_desc: "Get download options within seconds of pasting the URL. No queue, no waiting, no captcha.",
+    feat3_title: "🔒 No Registration Required", feat3_desc: "No account needed. No email, no login, no hidden tracking. Just paste the URL and download.",
+    feat4_title: "📱 Mobile Friendly", feat4_desc: "Works perfectly on desktop, tablet, and mobile. Responsive design optimized for every screen size.",
+    feat5_title: "💸 100% Free", feat5_desc: "Completely free. No premium plan, no hidden charges, no credit card requirement. Free forever.",
+    feat6_title: "🛡️ Safe & Secure", feat6_desc: "No malware, no pop-up ads, no redirects. Just clean download links. We don't store any personal data.",
+    feat7_title: "🌐 No Signup Needed", feat7_desc: "Use it directly without filling any form. No OTP, no verification, no waiting period.",
+    feat8_title: "🎯 Multiple Qualities", feat8_desc: "Multiple quality options for the same video — choose the file size and quality that fits your needs.",
+    feat9_title: "🔄 Regular Updates", feat9_desc: "Bilibili regularly updates its technical protection — we keep our service updated so downloads always work.",
+    guide_title: "Complete Guide — Bilibili Video Download",
+    guide_intro: "This section is for users who are downloading from Bilibili for the first time. We explain every step in detail below.",
+    guide_h1: "Step 1: How to Find the Bilibili Video URL",
+    guide_p1: "First, you need the URL of the video you want to download. There are two ways:",
+    guide_li1: "<strong>On desktop:</strong> Open the Bilibili video in your browser → copy the URL from the address bar (e.g., https://www.bilibili.com/video/BV1xx411c7mD)",
+    guide_li2: "<strong>On mobile app:</strong> Open the video → tap the 'Share' icon on the right → select 'Copy Link'",
+    guide_h2: "Step 2: Paste the URL",
+    guide_p2: "Now paste the URL into the BiliSave downloader box. You can also use b23.tv short links — we automatically handle the redirect.",
+    guide_h3: "Step 3: Select the Quality",
+    guide_p3: "Choose your desired quality from the dropdown:",
+    guide_q1: "<strong>1080p (Full HD):</strong> Best quality, large file size (approx. 200-500 MB per 10 min)",
+    guide_q2: "<strong>720p (HD):</strong> Balanced quality and size (approx. 100-250 MB per 10 min)",
+    guide_q3: "<strong>480p (SD):</strong> Smallest size, best for mobile (approx. 50-100 MB per 10 min)",
+    guide_h4: "Step 4: Click the Download Button",
+    guide_p4: "Download links take 5-15 seconds to generate. If the video is private or region-locked, you will see an error message.",
+    guide_h5: "Step 5: Save the File",
+    guide_p5: "After clicking the download button, the video will be saved to your device. Check your default download folder.",
+    quality_title: "Quality Comparison — 480p vs 720p vs 1080p",
+    quality_intro: "Which quality should you choose? It depends on your needs. See the comparison table below:",
+    th_quality: "Quality", th_resolution: "Resolution", th_size: "File Size (10 min video)", th_best: "Best For",
+    td_480: "Older phones, limited data", td_720: "General viewing, mobile", td_1080: "Desktop, TV, archiving",
+    quality_tip: "<strong>Tip:</strong> If you have limited storage, 720p is the best choice — it offers the perfect balance of quality and file size. Choose 1080p when you want to watch on a large screen.",
+    trouble_title: "Troubleshooting — Common Errors & Solutions",
+    trouble_intro: "Sometimes errors can occur during the download process. Here are the common errors and their solutions:",
+    err1_title: "❌ Error: 'Invalid URL'",
+    err1_desc: "<strong>Cause:</strong> The URL is in the wrong format or is from another site. <strong>Solution:</strong> Make sure the URL contains bilibili.com/video/BV... or b23.tv/... Only the BV ID part will also work.",
+    err2_title: "❌ Error: 'Video not found'",
+    err2_desc: "<strong>Cause:</strong> The video was deleted, is private, or is region-locked. <strong>Solution:</strong> Check on Bilibili whether the video is still accessible.",
+    err3_title: "❌ Error: 'Service unavailable'",
+    err3_desc: "<strong>Cause:</strong> Cobalt.tools is temporarily busy or down. <strong>Solution:</strong> Wait 30-60 seconds and retry. Or go directly to cobalt.tools and paste the URL there.",
+    err4_title: "❌ Download button doesn't work",
+    err4_desc: "<strong>Cause:</strong> Bilibili CDN checks the Referer header. <strong>Solution:</strong> Right-click the link → select 'Save link as...'. Or open the link in a new tab.",
+    err5_title: "❌ 1080p option not showing",
+    err5_desc: "<strong>Cause:</strong> The original video was not uploaded in 1080p, or 1080p is only available to premium users. <strong>Solution:</strong> Try 720p. Some videos on Bilibili are only uploaded up to 720p.",
+    faq_title: "FAQ (Frequently Asked Questions)",
+    faq_intro: "The most common questions are answered below. If your question isn't here, contact us.",
+    faq_q1: "❓ Is this website free?", faq_a1: "Yes, completely free. No registration, no hidden charges. Free forever.",
+    faq_q2: "❓ Can I download in 1080p quality?", faq_a2: "Yes, but 1080p is only available if the original video was uploaded in 1080p. Some videos are only available up to 720p. 1080p may require a Bilibili premium account.",
+    faq_q3: "❓ Do I need a Bilibili account to download?", faq_a3: "Not for this tool. However, some videos (premium/paid) are only accessible after login — those cannot be downloaded.",
+    faq_q4: "❓ Are downloaded videos for commercial use?", faq_a4: "No. For personal use (offline viewing) only. Commercial use or redistribution is copyright infringement. Always get the creator's permission.",
+    faq_q5: "❓ The video won't download — what should I do?", faq_a5: "Some videos are geo-restricted or premium. Check that the URL is in the correct format (it should start with BV). If it still fails, the video may be temporarily unavailable. See the troubleshooting section.",
+    faq_q6: "❓ Do you store my data?", faq_a6: "No. We don't store any URLs, videos, or personal data. Everything is processed in your browser.",
+    faq_q7: "❓ Does this tool work on mobile?", faq_a7: "Yes, absolutely. It works on both Android and iOS. No app installation needed — just open it in your browser.",
+    faq_q8: "❓ Will there be a watermark on the downloaded video?", faq_a8: "No. You get the video in original quality, with no extra watermark.",
+    faq_q9: "❓ Is there a limit to BiliSave?", faq_a9: "There is no fixed limit, but due to Cobalt.tools' rate limit, multiple downloads within 1-2 minutes may cause a temporary block. Please wait a moment.",
+    faq_q10: "❓ Can I download all videos from a playlist or channel?", faq_a10: "Not yet — this tool downloads one video at a time. Playlist support will be added in the future.",
+    policy_title: "Policies",
+    pol1_title: "1. Copyright Policy",
+    pol1_desc: "This tool is for personal, non-commercial use only. You should only download videos that you created yourself, that are copyright-free/CC-licensed, or for which you have the creator's explicit permission. Downloading, redistributing, or uploading any third-party copyrighted content is strictly prohibited and is a violation of copyright law.",
+    pol2_title: "2. Bilibili Terms of Service",
+    pol2_desc: "According to Bilibili's Terms of Service, downloading their videos is not allowed except through their official app's 'offline cache' feature. When using this tool, you are responsible for following Bilibili's ToS. We are not responsible for any ToS violation.",
+    pol3_title: "3. Privacy Policy",
+    pol3_desc: "We respect your privacy. This website: does not collect any personal data; does not use tracking cookies (except basic analytics); does not store any URLs or videos on servers; does not use third-party ad networks (except display ads). All processing happens in your browser. When third-party services (like Cobalt) are used, their own privacy policies apply.",
+    pol4_title: "4. Disclaimer",
+    pol4_desc: "This tool is provided 'as-is'. We do not guarantee that any specific video can be downloaded. Bilibili regularly updates its technical protection, which may break third-party tools. Users are solely responsible for any misuse.",
+    pol5_title: "5. DMCA / Takedown",
+    pol5_desc: "If you are a copyright holder and believe this site violates your rights, please contact us. We will take action immediately.",
+    pol6_title: "6. Ads Policy",
+    pol6_desc: "This site uses display ads (Google AdSense, Ezoic, etc.) to cover hosting and maintenance costs. Ads are privacy-friendly and do not collect personal data. You can use an ad blocker — the site will still be fully functional.",
+    blog_title: "Articles & Blogs", blog_intro: "Read the latest articles about Bilibili, video downloading, copyright, and technical guides:",
+    blog1_title: "How to Download Bilibili Videos — Step-by-Step Guide", blog1_desc: "The complete method for downloading Bilibili videos up to 1080p on both mobile and desktop. Includes common errors and their solutions.",
+    blog2_title: "Is It Legal to Download Bilibili Videos?", blog2_desc: "A detailed explanation of copyright law, fair use, and Bilibili's Terms of Service. What's allowed and what's not — all clear.",
+    blog3_title: "720p vs 1080p: Which Quality to Choose?", blog3_desc: "A comparison of file size, bandwidth, and visual quality. A guide to choosing the best quality based on your needs.",
+    blog4_title: "Top 5 Bilibili Downloader Tools (2024)", blog4_desc: "A comparison of trusted tools — based on features, speed, safety, and reliability. Free and paid options included.",
+    blog5_title: "What Is WBI Signing and How Do Downloaders Work?", blog5_desc: "A simple explanation of Bilibili's technical protection — WBI tokens, Referer checks, and how downloaders handle them.",
+    blog6_title: "How to Download Bilibili Videos on Mobile", blog6_desc: "Easy steps for both Android and iOS. A full guide on how to download without installing any app.",
+    read_more: "Read more →",
+    about_title: "About BiliSave",
+    about_p1: "<strong>BiliSave</strong> is a simple, fast, and privacy-focused tool that helps you easily download Bilibili videos. Our goal is to provide a clean, ad-free experience without any registration, tracking, or hidden charges.",
+    about_p2: "We understand that creators' work deserves respect — that's why we encourage use only for personal offline viewing. We also support creators and are against the unauthorized redistribution of their content.",
+    about_mission_title: "Our Mission",
+    about_mission_desc: "Content should be easily accessible on the internet — but creators' rights must be respected. BiliSave's mission is to provide a simple, safe, and free tool that helps users watch their favorite content offline, without any complex setup.",
+    about_tech_title: "Technical Details",
+    about_tech_desc: "This tool runs on client-side JavaScript. Due to Bilibili's technical protection (WBI signing, Referer checks), we use trusted third-party services (like Cobalt.tools) to generate download links. We do not store your URLs.",
+    about_contact_title: "Contact Us",
+    about_contact_desc: "For questions, feedback, or DMCA takedown requests, email us: support@bilisave.example. We usually reply within 24-48 hours.",
+    footer_tagline: "Free Bilibili video downloader — HD 720p and 1080p quality. Fast, safe, and no registration.",
+    footer_quick: "Quick Links", footer_legal: "Legal", footer_resources: "Resources",
+    footer_privacy: "Privacy Policy", footer_terms: "Terms of Service",
+    footer_dmca: "DMCA / Copyright", footer_disclaimer: "Disclaimer",
+    footer_blog: "Blog & Articles", footer_guide: "Complete Guide",
+    footer_trouble: "Troubleshooting", footer_about: "About Us",
+    footer_copyright: "© 2024 BiliSave. All rights reserved. | Educational & personal use only.",
+    footer_disclaimer2: "This site is not affiliated with Bilibili. All trademarks belong to their respective owners."
+  },
+  fr: {
+    nav_downloader: "Téléchargeur", nav_how: "Comment utiliser", nav_features: "Fonctionnalités",
+    nav_guide: "Guide", nav_faq: "FAQ", nav_policy: "Politique", nav_blog: "Blog", nav_about: "À propos",
+    lang_label: "🌐 Langue",
+    hero_title: "Téléchargez des vidéos Bilibili en HD<br>720p, 1080p — Gratuit et rapide",
+    hero_subtitle: "Téléchargez n'importe quelle vidéo Bilibili publique en qualité Full HD. Sans inscription, sans filigrane, sans frais cachés. Collez simplement l'URL et téléchargez — sur mobile ou ordinateur.",
+    badge_free: "✅ 100% gratuit", badge_fast: "⚡ Traitement rapide", badge_noreg: "🔒 Sans inscription",
+    badge_mobile: "📱 Compatible mobile", badge_hd: "🎬 Jusqu'à 1080p",
+    downloader_title: "🎬 Collez l'URL de la vidéo Bilibili et téléchargez",
+    btn_get_links: "Obtenir les liens", quality_label: "Qualité préférée :",
+    share_title: "🔗 Partager BiliSave", share_subtitle: "Aidez les autres à découvrir BiliSave — partagez-le avec vos amis !",
+    btn_copy_link: "Copier le lien",
+    toc_title: "📑 Sur cette page",
+    how_title: "Comment utiliser", how_intro: "Utiliser BiliSave est très simple — seulement 3 étapes :",
+    step1_title: "Copier l'URL de la vidéo", step1_desc: "Ouvrez votre vidéo sur l'application ou le site Bilibili. Copiez l'URL depuis la barre d'adresse ou appuyez sur 'Partager → Copier le lien'.",
+    step2_title: "Coller l'URL", step2_desc: "Collez l'URL dans la boîte ci-dessus. Sélectionnez la qualité (720p ou 1080p), puis cliquez sur 'Obtenir les liens'.",
+    step3_title: "Télécharger", step3_desc: "Les boutons apparaissent en quelques secondes. Choisissez votre qualité et enregistrez la vidéo.",
+    how_note: "⚠️ Remarque importante : En raison de la protection technique de Bilibili, les téléchargeurs uniquement côté navigateur ne sont pas toujours fiables. Nous utilisons Cobalt.tools pour générer les liens.",
+    features_title: "Fonctionnalités",
+    features_intro: "BiliSave est conçu pour la simplicité et la rapidité. Voici ce qui le distingue :",
+    quality_title: "Comparaison des qualités — 480p vs 720p vs 1080p",
+    quality_intro: "Quelle qualité choisir ? Cela dépend de vos besoins. Voir le tableau ci-dessous :",
+    th_quality: "Qualité", th_resolution: "Résolution", th_size: "Taille (vidéo de 10 min)", th_best: "Idéal pour",
+    td_480: "Téléphones anciens, données limitées", td_720: "Visionnage général, mobile", td_1080: "Ordinateur, TV, archivage",
+    faq_title: "FAQ (Questions fréquentes)",
+    faq_intro: "Les questions les plus courantes sont répondues ci-dessous.",
+    policy_title: "Politiques",
+    blog_title: "Articles & Blogs",
+    about_title: "À propos de BiliSave",
+    read_more: "Lire la suite →",
+    footer_quick: "Liens rapides", footer_legal: "Mentions légales", footer_resources: "Ressources",
+    footer_copyright: "© 2024 BiliSave. Tous droits réservés. | Usage éducatif et personnel uniquement.",
+    footer_disclaimer2: "Ce site n'est pas affilié à Bilibili."
+  },
+  it: {
+    nav_downloader: "Downloader", nav_how: "Come usare", nav_features: "Funzionalità",
+    nav_guide: "Guida", nav_faq: "FAQ", nav_policy: "Politica", nav_blog: "Blog", nav_about: "Chi siamo",
+    lang_label: "🌐 Lingua",
+    hero_title: "Scarica video Bilibili in HD<br>720p, 1080p — Gratis e veloce",
+    hero_subtitle: "Scarica qualsiasi video Bilibili pubblico in qualità Full HD. Nessuna registrazione, nessuna filigrana, nessun costo nascosto. Incolla l'URL e scarica.",
+    badge_free: "✅ 100% gratis", badge_fast: "⚡ Elaborazione veloce", badge_noreg: "🔒 Senza registrazione",
+    badge_mobile: "📱 Compatibile mobile", badge_hd: "🎬 Fino a 1080p",
+    downloader_title: "🎬 Incolla l'URL del video Bilibili e scarica",
+    btn_get_links: "Ottieni link", quality_label: "Qualità preferita:",
+    share_title: "🔗 Condividi BiliSave", share_subtitle: "Aiuta gli altri a scoprire BiliSave — condividilo con i tuoi amici!",
+    btn_copy_link: "Copia link",
+    toc_title: "📑 In questa pagina",
+    how_title: "Come usare", how_intro: "Usare BiliSave è molto semplice — solo 3 passaggi:",
+    step1_title: "Copia l'URL del video", step1_desc: "Apri il tuo video preferito sull'app o sul sito Bilibili. Copia l'URL dalla barra degli indirizzi o tocca 'Condividi → Copia link'.",
+    step2_title: "Incolla l'URL", step2_desc: "Incolla l'URL nella casella sopra. Seleziona la qualità (720p o 1080p), quindi clicca 'Ottieni link'.",
+    step3_title: "Scarica", step3_desc: "I pulsanti appaiono in pochi secondi. Scegli la qualità e salva il video.",
+    how_note: "⚠️ Nota importante: A causa della protezione tecnica di Bilibili, i downloader solo browser non sono sempre affidabili. Usiamo Cobalt.tools per generare i link.",
+    features_title: "Funzionalità",
+    features_intro: "BiliSave è costruito per semplicità e velocità. Ecco cosa lo distingue:",
+    quality_title: "Confronto qualità — 480p vs 720p vs 1080p",
+    quality_intro: "Quale qualità scegliere? Dipende dalle tue esigenze. Vedi la tabella:",
+    th_quality: "Qualità", th_resolution: "Risoluzione", th_size: "Dimensione (video 10 min)", th_best: "Ideale per",
+    td_480: "Telefoni vecchi, dati limitati", td_720: "Visualizzazione generale, mobile", td_1080: "Desktop, TV, archiviazione",
+    faq_title: "FAQ (Domande frequenti)", faq_intro: "Le domande più comuni sono risposte qui sotto.",
+    policy_title: "Politiche", blog_title: "Articoli & Blog", about_title: "Chi è BiliSave",
+    read_more: "Leggi di più →",
+    footer_quick: "Link rapidi", footer_legal: "Note legali", footer_resources: "Risorse",
+    footer_copyright: "© 2024 BiliSave. Tutti i diritti riservati. | Solo uso educativo e personale.",
+    footer_disclaimer2: "Questo sito non è affiliato a Bilibili."
+  },
+  de: {
+    nav_downloader: "Downloader", nav_how: "Anleitung", nav_features: "Funktionen",
+    nav_guide: "Leitfaden", nav_faq: "FAQ", nav_policy: "Richtlinien", nav_blog: "Blog", nav_about: "Über uns",
+    lang_label: "🌐 Sprache",
+    hero_title: "Bilibili-Videos in HD herunterladen<br>720p, 1080p — Kostenlos & schnell",
+    hero_subtitle: "Laden Sie jedes öffentliche Bilibili-Video in Full HD herunter. Keine Registrierung, kein Wasserzeichen, keine versteckten Kosten. Einfach URL einfügen und herunterladen.",
+    badge_free: "✅ 100% kostenlos", badge_fast: "⚡ Schnelle Verarbeitung", badge_noreg: "🔒 Keine Registrierung",
+    badge_mobile: "📱 Mobilfreundlich", badge_hd: "🎬 Bis zu 1080p",
+    downloader_title: "🎬 Bilibili-Video-URL einfügen & herunterladen",
+    btn_get_links: "Links abrufen", quality_label: "Bevorzugte Qualität:",
+    share_title: "🔗 BiliSave teilen", share_subtitle: "Helfen Sie anderen, BiliSave zu entdecken — teilen Sie es mit Ihren Freunden!",
+    btn_copy_link: "Link kopieren",
+    toc_title: "📑 Auf dieser Seite",
+    how_title: "Anleitung", how_intro: "BiliSave zu verwenden ist sehr einfach — nur 3 Schritte:",
+    step1_title: "Video-URL kopieren", step1_desc: "Öffnen Sie Ihr Lieblingsvideo in der Bilibili-App oder auf der Website. Kopieren Sie die URL aus der Adressleiste oder tippen Sie auf 'Teilen → Link kopieren'.",
+    step2_title: "URL einfügen", step2_desc: "Fügen Sie die URL in das Feld oben ein. Wählen Sie die Qualität (720p oder 1080p) und klicken Sie auf 'Links abrufen'.",
+    step3_title: "Herunterladen", step3_desc: "Die Buttons erscheinen in Sekunden. Wählen Sie Ihre Qualität und speichern Sie das Video.",
+    how_note: "⚠️ Wichtiger Hinweis: Aufgrund des technischen Schutzes von Bilibili sind reine Browser-Downloader nicht immer zuverlässig. Wir verwenden Cobalt.tools zum Generieren von Links.",
+    features_title: "Funktionen",
+    features_intro: "BiliSave ist für Einfachheit und Geschwindigkeit gebaut. Hier sind die Funktionen:",
+    quality_title: "Qualitätsvergleich — 480p vs 720p vs 1080p",
+    quality_intro: "Welche Qualität soll ich wählen? Das hängt von Ihren Bedürfnissen ab:",
+    th_quality: "Qualität", th_resolution: "Auflösung", th_size: "Dateigröße (10-Min-Video)", th_best: "Am besten für",
+    td_480: "Ältere Handys, begrenztes Datenvolumen", td_720: "Allgemeines Ansehen, Mobil", td_1080: "Desktop, TV, Archivierung",
+    faq_title: "FAQ (Häufig gestellte Fragen)", faq_intro: "Die häufigsten Fragen sind unten beantwortet.",
+    policy_title: "Richtlinien", blog_title: "Artikel & Blogs", about_title: "Über BiliSave",
+    read_more: "Weiterlesen →",
+    footer_quick: "Schnelllinks", footer_legal: "Rechtliches", footer_resources: "Ressourcen",
+    footer_copyright: "© 2024 BiliSave. Alle Rechte vorbehalten. | Nur für Bildung und persönliche Nutzung.",
+    footer_disclaimer2: "Diese Website ist nicht mit Bilibili verbunden."
+  },
+  ru: {
+    nav_downloader: "Загрузчик", nav_how: "Как использовать", nav_features: "Функции",
+    nav_guide: "Руководство", nav_faq: "FAQ", nav_policy: "Политика", nav_blog: "Блог", nav_about: "О нас",
+    lang_label: "🌐 Язык",
+    hero_title: "Скачивайте видео Bilibili в HD<br>720p, 1080p — Бесплатно и быстро",
+    hero_subtitle: "Скачивайте любое публичное видео Bilibili в Full HD качестве. Без регистрации, без водяных знаков, без скрытых платежей. Просто вставьте URL и скачайте.",
+    badge_free: "✅ 100% бесплатно", badge_fast: "⚡ Быстрая обработка", badge_noreg: "🔒 Без регистрации",
+    badge_mobile: "📱 Для мобильных", badge_hd: "🎬 До 1080p",
+    downloader_title: "🎬 Вставьте URL видео Bilibili и скачайте",
+    btn_get_links: "Получить ссылки", quality_label: "Предпочитаемое качество:",
+    share_title: "🔗 Поделиться BiliSave", share_subtitle: "Помогите другим узнать о BiliSave — поделитесь с друзьями!",
+    btn_copy_link: "Копировать ссылку",
+    toc_title: "📑 На этой странице",
+    how_title: "Как использовать", how_intro: "Использовать BiliSave очень просто — всего 3 шага:",
+    step1_title: "Скопируйте URL видео", step1_desc: "Откройте видео в приложении или на сайте Bilibili. Скопируйте URL из адресной строки или нажмите 'Поделиться → Копировать ссылку'.",
+    step2_title: "Вставьте URL", step2_desc: "Вставьте URL в поле выше. Выберите качество (720p или 1080p) и нажмите 'Получить ссылки'.",
+    step3_title: "Скачайте", step3_desc: "Кнопки появятся через несколько секунд. Выберите качество и сохраните видео.",
+    how_note: "⚠️ Важно: Из-за технической защиты Bilibili браузерные загрузчики не всегда надёжны. Мы используем Cobalt.tools для генерации ссылок.",
+    features_title: "Функции", features_intro: "BiliSave создан для простоты и скорости. Вот его особенности:",
+    quality_title: "Сравнение качества — 480p vs 720p vs 1080p",
+    quality_intro: "Какое качество выбрать? Зависит от ваших потребностей:",
+    th_quality: "Качество", th_resolution: "Разрешение", th_size: "Размер файла (10 мин)", th_best: "Лучше всего для",
+    td_480: "Старые телефоны, ограниченный трафик", td_720: "Обычный просмотр, мобильный", td_1080: "ПК, ТВ, архивирование",
+    faq_title: "FAQ (Часто задаваемые вопросы)", faq_intro: "Ответы на самые частые вопросы ниже.",
+    policy_title: "Политики", blog_title: "Статьи и блог", about_title: "О BiliSave",
+    read_more: "Читать далее →",
+    footer_quick: "Быстрые ссылки", footer_legal: "Правовая информация", footer_resources: "Ресурсы",
+    footer_copyright: "© 2024 BiliSave. Все права защищены. | Только для образовательного и личного использования.",
+    footer_disclaimer2: "Этот сайт не связан с Bilibili."
+  },
+  es: {
+    nav_downloader: "Descargador", nav_how: "Cómo usar", nav_features: "Características",
+    nav_guide: "Guía", nav_faq: "FAQ", nav_policy: "Política", nav_blog: "Blog", nav_about: "Acerca de",
+    lang_label: "🌐 Idioma",
+    hero_title: "Descarga videos de Bilibili en HD<br>720p, 1080p — Gratis y rápido",
+    hero_subtitle: "Descarga cualquier video público de Bilibili en calidad Full HD. Sin registro, sin marca de agua, sin cargos ocultos. Solo pega la URL y descarga.",
+    badge_free: "✅ 100% gratis", badge_fast: "⚡ Procesamiento rápido", badge_noreg: "🔒 Sin registro",
+    badge_mobile: "📱 Compatible con móvil", badge_hd: "🎬 Hasta 1080p",
+    downloader_title: "🎬 Pega la URL del video de Bilibili y descarga",
+    btn_get_links: "Obtener enlaces", quality_label: "Calidad preferida:",
+    share_title: "🔗 Compartir BiliSave", share_subtitle: "¡Ayuda a otros a descubrir BiliSave — compártelo con tus amigos!",
+    btn_copy_link: "Copiar enlace",
+    toc_title: "📑 En esta página",
+    how_title: "Cómo usar", how_intro: "Usar BiliSave es muy simple — solo 3 pasos:",
+    step1_title: "Copia la URL del video", step1_desc: "Abre tu video en la app o sitio de Bilibili. Copia la URL de la barra de direcciones o toca 'Compartir → Copiar enlace'.",
+    step2_title: "Pega la URL", step2_desc: "Pega la URL en el cuadro de arriba. Selecciona la calidad (720p o 1080p) y haz clic en 'Obtener enlaces'.",
+    step3_title: "Descarga", step3_desc: "Los botones aparecen en segundos. Elige tu calidad y guarda el video.",
+    how_note: "⚠️ Nota importante: Debido a la protección técnica de Bilibili, los descargadores solo de navegador no siempre son fiables. Usamos Cobalt.tools para generar enlaces.",
+    features_title: "Características", features_intro: "BiliSave está construido para simplicidad y velocidad:",
+    quality_title: "Comparación de calidad — 480p vs 720p vs 1080p",
+    quality_intro: "¿Qué calidad elegir? Depende de tus necesidades:",
+    th_quality: "Calidad", th_resolution: "Resolución", th_size: "Tamaño (video 10 min)", th_best: "Mejor para",
+    td_480: "Teléfonos antiguos, datos limitados", td_720: "Visualización general, móvil", td_1080: "Escritorio, TV, archivo",
+    faq_title: "FAQ (Preguntas frecuentes)", faq_intro: "Las preguntas más comunes están respondidas abajo.",
+    policy_title: "Políticas", blog_title: "Artículos y blog", about_title: "Acerca de BiliSave",
+    read_more: "Leer más →",
+    footer_quick: "Enlaces rápidos", footer_legal: "Legal", footer_resources: "Recursos",
+    footer_copyright: "© 2024 BiliSave. Todos los derechos reservados. | Solo uso educativo y personal.",
+    footer_disclaimer2: "Este sitio no está afiliado con Bilibili."
+  },
+  pt: {
+    nav_downloader: "Baixar", nav_how: "Como usar", nav_features: "Recursos",
+    nav_guide: "Guia", nav_faq: "FAQ", nav_policy: "Política", nav_blog: "Blog", nav_about: "Sobre",
+    lang_label: "🌐 Idioma",
+    hero_title: "Baixe vídeos do Bilibili em HD<br>720p, 1080p — Grátis e rápido",
+    hero_subtitle: "Baixe qualquer vídeo público do Bilibili em qualidade Full HD. Sem registro, sem marca d'água, sem taxas ocultas. Basta colar a URL e baixar.",
+    badge_free: "✅ 100% grátis", badge_fast: "⚡ Processamento rápido", badge_noreg: "🔒 Sem registro",
+    badge_mobile: "📱 Compatível com celular", badge_hd: "🎬 Até 1080p",
+    downloader_title: "🎬 Cole a URL do vídeo Bilibili e baixe",
+    btn_get_links: "Obter links", quality_label: "Qualidade preferida:",
+    share_title: "🔗 Compartilhar BiliSave", share_subtitle: "Ajude outros a descobrir o BiliSave — compartilhe com seus amigos!",
+    btn_copy_link: "Copiar link",
+    toc_title: "📑 Nesta página",
+    how_title: "Como usar", how_intro: "Usar o BiliSave é muito simples — apenas 3 passos:",
+    step1_title: "Copie a URL do vídeo", step1_desc: "Abra seu vídeo no app ou site do Bilibili. Copie a URL da barra de endereços ou toque em 'Compartilhar → Copiar link'.",
+    step2_title: "Cole a URL", step2_desc: "Cole a URL na caixa acima. Selecione a qualidade (720p ou 1080p) e clique em 'Obter links'.",
+    step3_title: "Baixe", step3_desc: "Os botões aparecem em segundos. Escolha sua qualidade e salve o vídeo.",
+    how_note: "⚠️ Nota importante: Devido à proteção técnica do Bilibili, downloaders apenas de navegador nem sempre são confiáveis. Usamos Cobalt.tools para gerar links.",
+    features_title: "Recursos", features_intro: "O BiliSave é construído para simplicidade e velocidade:",
+    quality_title: "Comparação de qualidade — 480p vs 720p vs 1080p",
+    quality_intro: "Qual qualidade escolher? Depende das suas necessidades:",
+    th_quality: "Qualidade", th_resolution: "Resolução", th_size: "Tamanho (vídeo 10 min)", th_best: "Melhor para",
+    td_480: "Celulares antigos, dados limitados", td_720: "Visualização geral, celular", td_1080: "Desktop, TV, arquivamento",
+    faq_title: "FAQ (Perguntas frequentes)", faq_intro: "As perguntas mais comuns estão respondidas abaixo.",
+    policy_title: "Políticas", blog_title: "Artigos e blog", about_title: "Sobre o BiliSave",
+    read_more: "Ler mais →",
+    footer_quick: "Links rápidos", footer_legal: "Legal", footer_resources: "Recursos",
+    footer_copyright: "© 2024 BiliSave. Todos os direitos reservados. | Apenas uso educacional e pessoal.",
+    footer_disclaimer2: "Este site não é afiliado ao Bilibili."
+  },
+  hi: {
+    nav_downloader: "डाउनलोडर", nav_how: "कैसे उपयोग करें", nav_features: "विशेषताएँ",
+    nav_guide: "गाइड", nav_faq: "FAQ", nav_policy: "नीति", nav_blog: "ब्लॉग", nav_about: "परिचय",
+    lang_label: "🌐 भाषा",
+    hero_title: "Bilibili वीडियो HD में डाउनलोड करें<br>720p, 1080p — मुफ्त और तेज़",
+    hero_subtitle: "किसी भी सार्वजनिक Bilibili वीडियो को Full HD क्वालिटी में डाउनलोड करें। कोई रजिस्ट्रेशन नहीं, कोई वॉटरमार्क नहीं, कोई छिपा शुल्क नहीं। बस URL पेस्ट करें और डाउनलोड करें।",
+    badge_free: "✅ 100% मुफ्त", badge_fast: "⚡ तेज़ प्रोसेसिंग", badge_noreg: "🔒 कोई रजिस्ट्रेशन नहीं",
+    badge_mobile: "📱 मोबाइल फ्रेंडली", badge_hd: "🎬 1080p तक",
+    downloader_title: "🎬 Bilibili वीडियो URL पेस्ट करें और डाउनलोड करें",
+    btn_get_links: "डाउनलोड लिंक प्राप्त करें", quality_label: "पसंदीदा क्वालिटी:",
+    share_title: "🔗 BiliSave शेयर करें", share_subtitle: "दूसरों को BiliSave के बारे में बताएं — दोस्तों के साथ शेयर करें!",
+    btn_copy_link: "लिंक कॉपी करें",
+    toc_title: "📑 इस पेज पर",
+    how_title: "कैसे उपयोग करें", how_intro: "BiliSave का उपयोग बहुत आसान है — बस 3 स्टेप:",
+    step1_title: "वीडियो URL कॉपी करें", step1_desc: "Bilibili ऐप या वेबसाइट पर अपना पसंदीदा वीडियो खोलें। एड्रेस बार से URL कॉपी करें या 'शेयर → लिंक कॉपी करें' पर टैप करें।",
+    step2_title: "URL पेस्ट करें", step2_desc: "ऊपर बॉक्स में URL पेस्ट करें। क्वालिटी चुनें (720p या 1080p), फिर 'डाउनलोड लिंक प्राप्त करें' पर क्लिक करें।",
+    step3_title: "डाउनलोड करें", step3_desc: "कुछ सेकंड में डाउनलोड बटन दिखेंगे। क्वालिटी चुनें और वीडियो सेव करें।",
+    how_note: "⚠️ महत्वपूर्ण: Bilibili की तकनीकी सुरक्षा के कारण, केवल ब्राउज़र डाउनलोडर हमेशा विश्वसनीय नहीं होते। हम Cobalt.tools का उपयोग करते हैं।",
+    features_title: "विशेषताएँ", features_intro: "BiliSave सरलता और गति के लिए बनाया गया है:",
+    quality_title: "क्वालिटी तुलना — 480p vs 720p vs 1080p",
+    quality_intro: "कौन सी क्वालिटी चुनें? यह आपकी जरूरतों पर निर्भर करता है:",
+    th_quality: "क्वालिटी", th_resolution: "रेजोल्यूशन", th_size: "फ़ाइल साइज़ (10 मिनट)", th_best: "सबसे अच्छा",
+    td_480: "पुराने फोन, सीमित डेटा", td_720: "सामान्य देखना, मोबाइल", td_1080: "डेस्कटॉप, टीवी, आर्काइव",
+    faq_title: "FAQ (अक्सर पूछे जाने वाले प्रश्न)", faq_intro: "सबसे आम सवालों के जवाब नीचे हैं।",
+    policy_title: "नीतियाँ", blog_title: "लेख और ब्लॉग", about_title: "BiliSave के बारे में",
+    read_more: "और पढ़ें →",
+    footer_quick: "त्वरित लिंक", footer_legal: "कानूनी", footer_resources: "संसाधन",
+    footer_copyright: "© 2024 BiliSave. सर्वाधिकार सुरक्षित। | केवल शैक्षिक और व्यक्तिगत उपयोग।",
+    footer_disclaimer2: "यह साइट Bilibili से संबद्ध नहीं है।"
+  },
+  ur: {
+    nav_downloader: "ڈاؤن لوڈر", nav_how: "کیسے استعمال کریں", nav_features: "خصوصیات",
+    nav_guide: "گائیڈ", nav_faq: "FAQ", nav_policy: "پالیسی", nav_blog: "بلاگ", nav_about: "تعارف",
+    lang_label: "🌐 زبان",
+    hero_title: "Bilibili ویڈیوز HD میں ڈاؤن لوڈ کریں<br>720p، 1080p — مفت اور تیز",
+    hero_subtitle: "کوئی بھی عوامی Bilibili ویڈیو Full HD کوالٹی میں ڈاؤن لوڈ کریں۔ کوئی رجسٹریشن نہیں، کوئی واٹر مارک نہیں، کوئی چھپا چارج نہیں۔",
+    badge_free: "✅ 100% مفت", badge_fast: "⚡ تیز پروسیسنگ", badge_noreg: "🔒 کوئی رجسٹریشن نہیں",
+    badge_mobile: "📱 موبائل فرینڈلی", badge_hd: "🎬 1080p تک",
+    downloader_title: "🎬 Bilibili ویڈیو URL پیسٹ کریں اور ڈاؤن لوڈ کریں",
+    btn_get_links: "ڈاؤن لوڈ لنکس حاصل کریں", quality_label: "پسندیدہ کوالٹی:",
+    share_title: "🔗 BiliSave شیئر کریں", share_subtitle: "دوسروں کو BiliSave کے بارے میں بتائیں — دوستوں کے ساتھ شیئر کریں!",
+    btn_copy_link: "لنک کاپی کریں",
+    toc_title: "📑 اس صفحے پر",
+    how_title: "کیسے استعمال کریں", how_intro: "BiliSave کا استعمال بہت آسان ہے — صرف 3 مراحل:",
+    step1_title: "ویڈیو URL کاپی کریں", step1_desc: "Bilibili ایپ یا ویب سائٹ پر اپنی پسندیدہ ویڈیو کھولیں۔ ایڈریس بار سے URL کاپی کریں یا 'شیئر → لنک کاپی کریں' پر ٹیپ کریں۔",
+    step2_title: "URL پیسٹ کریں", step2_desc: "اوپر باکس میں URL پیسٹ کریں۔ کوالٹی منتخب کریں (720p یا 1080p)، پھر 'ڈاؤن لوڈ لنکس حاصل کریں' پر کلک کریں۔",
+    step3_title: "ڈاؤن لوڈ کریں", step3_desc: "کچھ سیکنڈ میں بٹن ظاہر ہوں گے۔ کوالٹی منتخب کریں اور ویڈیو محفوظ کریں۔",
+    how_note: "⚠️ اہم نوٹ: Bilibili کی تکنیکی حفاظت کی وجہ سے، صرف براؤزر ڈاؤن لوڈر ہمیشہ قابل اعتماد نہیں ہوتے۔ ہم Cobalt.tools استعمال کرتے ہیں۔",
+    features_title: "خصوصیات", features_intro: "BiliSave سادگی اور رفتار کے لیے بنایا گیا ہے:",
+    quality_title: "کوالٹی موازنہ — 480p vs 720p vs 1080p",
+    quality_intro: "کون سی کوالٹی منتخب کریں؟ یہ آپ کی ضروریات پر منحصر ہے:",
+    th_quality: "کوالٹی", th_resolution: "ریزولوشن", th_size: "فائل سائز (10 منٹ)", th_best: "بہترین",
+    td_480: "پرانے فون، محدود ڈیٹا", td_720: "عام دیکھنا، موبائل", td_1080: "ڈیسک ٹاپ، ٹی وی، آرکائیو",
+    faq_title: "FAQ (اکثر پوچھے جانے والے سوالات)", faq_intro: "سب سے عام سوالات کے جوابات نیچے ہیں۔",
+    policy_title: "پالیسیاں", blog_title: "مضامین اور بلاگ", about_title: "BiliSave کے بارے میں",
+    read_more: "مزید پڑھیں →",
+    footer_quick: "فوری لنکس", footer_legal: "قانونی", footer_resources: "وسائل",
+    footer_copyright: "© 2024 BiliSave۔ جملہ حقوق محفوظ ہیں۔ | صرف تعلیمی اور ذاتی استعمال۔",
+    footer_disclaimer2: "یہ سائٹ Bilibili سے منسلک نہیں ہے۔"
+  }
+};
+
+// Language apply function
+function applyLanguage(lang){
+  const dict = translations[lang] || translations.en;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(dict[key] !== undefined){
+      if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA'){
+        el.placeholder = dict[key];
+      } else if(/<br>|<strong>|<a /.test(dict[key])){
+        el.innerHTML = dict[key];
+      } else {
+        el.textContent = dict[key];
+      }
+    }
+  });
+  // Set direction for Urdu
+  document.documentElement.dir = (lang === 'ur') ? 'rtl' : 'ltr';
+  document.documentElement.lang = lang;
+  localStorage.setItem('bilisave_lang', lang);
+}
+
+// ===== DOWNLOADER LOGIC =====
+(function(){
+  const input   = document.getElementById('videoUrl');
+  const btn     = document.getElementById('downloadBtn');
+  const status  = document.getElementById('status');
+  const result  = document.getElementById('resultCard');
+  const quality = document.getElementById('quality');
+  const backToTop = document.getElementById('backToTop');
+  const langSelect = document.getElementById('langSelect');
+
+  // Load saved language
+  const savedLang = localStorage.getItem('bilisave_lang') || 'en';
+  langSelect.value = savedLang;
+  applyLanguage(savedLang);
+
+  langSelect.addEventListener('change', (e) => {
+    applyLanguage(e.target.value);
+  });
+
+  function setStatus(msg, type){
+    status.textContent = msg;
+    status.className = 'status ' + (type || 'info');
+  }
+
+  function isValidBili(url){
+    return /(?:bilibili\.com|b23\.tv)/i.test(url);
+  }
+
+  function extractBvid(url){
+    const m = url.match(/(BV[0-9A-Za-z]{10})/);
+    return m ? m[1] : null;
+  }
+
+  btn.addEventListener('click', async function(){
+    const url = input.value.trim();
+    result.style.display='none';
+    if(!url){ setStatus('⚠️ Please paste a video URL first.', 'error'); return; }
+    if(!isValidBili(url)){ setStatus('❌ This does not look like a valid Bilibili URL.', 'error'); return; }
+
+    const bvid = extractBvid(url);
+    if(!bvid && !/b23\.tv/.test(url)){
+      setStatus('❌ BV ID not found. Check the URL (e.g., bilibili.com/video/BV1xx411c7mD).', 'error');
+      return;
+    }
+
+    btn.disabled = true;
+    setStatus('⏳ Generating download link... (via Cobalt.tools)', 'info');
+
+    try {
+      const res = await fetch('https://api.cobalt.tools/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          url: url,
+          videoQuality: quality.value === '1080' ? '1080' : (quality.value === '720' ? '720' : '480'),
+          downloadMode: 'auto'
+        })
+      });
+
+      if(!res.ok){
+        throw new Error('Service did not respond (status ' + res.status + ')');
+      }
+      const data = await res.json();
+
+      if(data.status === 'error' || data.error){
+        throw new Error(data.error?.code || data.error || 'Download link not found');
+      }
+
+      let urls = [];
+      if(data.url){ urls.push({ url: data.url, label: 'Download Video' }); }
+      if(Array.isArray(data.picker)) urls = data.picker.map((p,i)=>({ url:p.url, label: p.type + ' (option ' + (i+1) + ')' }));
+      if(Array.isArray(data.urls)) urls = data.urls.map((u,i)=>({ url:u.url || u, label:'Download ' + (i+1) }));
+      if(!urls.length && data.status==='picker' && data.audio){ urls.push({url:data.audio, label:'Audio only'}); }
+
+      if(!urls.length) throw new Error('No download URL found. The video may be private or region-locked.');
+
+      result.innerHTML = '';
+      const titleDiv = document.createElement('div');
+      titleDiv.className = 'title';
+      titleDiv.textContent = '✅ Download Links Ready (Bilibili)';
+      result.appendChild(titleDiv);
+
+      const infoDiv = document.createElement('p');
+      infoDiv.style.fontSize = '.88rem';
+      infoDiv.style.color = '#6b6b7b';
+      infoDiv.textContent = 'Note: Bilibili CDN checks the Referer header. If direct download fails, right-click → "Save link as..." or open in a new tab.';
+      result.appendChild(infoDiv);
+
+      const btnWrap = document.createElement('div');
+      btnWrap.className = 'dl-buttons';
+      urls.forEach(u => {
+        const a = document.createElement('a');
+        a.href = u.url;
+        a.textContent = '⬇ ' + u.label;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.download = '';
+        btnWrap.appendChild(a);
+      });
+      result.appendChild(btnWrap);
+      result.style.display = 'block';
+
+      setStatus('✅ Links generated. Check the download buttons below.', 'success');
+      result.scrollIntoView({behavior:'smooth', block:'nearest'});
+
+    } catch(err){
+      console.error(err);
+      setStatus(
+        '❌ ' + (err.message || 'Something went wrong') +
+        ' — Cobalt.tools may be temporarily busy. Please retry after 30 seconds, or paste the URL directly on cobalt.tools.',
+        'error'
+      );
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(el=>{
+    el.addEventListener('click', ()=> el.classList.toggle('open'));
+  });
+
+  // Back to top
+  window.addEventListener('scroll', ()=>{
+    if(window.scrollY > 400){ backToTop.classList.add('show'); }
+    else { backToTop.classList.remove('show'); }
+  });
+  backToTop.addEventListener('click', ()=>{
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // ===== SHARE LOGIC =====
+  const pageUrl = encodeURIComponent(window.location.href);
+  const pageTitle = encodeURIComponent('BiliSave - Free Bilibili Video Downloader HD 720p-1080p');
+
+  document.getElementById('shareWhatsapp').href = `https://wa.me/?text=${pageTitle}%20${pageUrl}`;
+  document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+  document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`;
+  document.getElementById('shareTelegram').href = `https://t.me/share/url?url=${pageUrl}&text=${pageTitle}`;
+  document.getElementById('shareLinkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+  document.getElementById('shareReddit').href = `https://www.reddit.com/submit?url=${pageUrl}&title=${pageTitle}`;
+  document.getElementById('shareEmail').href = `mailto:?subject=${pageTitle}&body=Check%20this%20out:%20${pageUrl}`;
+
+  // Copy link
+  document.getElementById('shareCopy').addEventListener('click', async function(){
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      const span = this.querySelector('span');
+      const originalText = span.textContent;
+      this.classList.add('copied');
+      span.textContent = '✅ Copied!';
+      setTimeout(() => {
+        this.classList.remove('copied');
+        span.textContent = originalText;
+      }, 2000);
+    } catch(err){
+      alert('Failed to copy. Please copy manually: ' + window.location.href);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
+    
